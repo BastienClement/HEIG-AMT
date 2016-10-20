@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="HEIG-AMT">
+    <output-path>$PROJECT_DIR$/out/artifacts/HEIG_AMT</output-path>
+    <root id="archive" name="HEIG-AMT.war">
+      <element id="javaee-facet-resources" facet="HEIG-AMT/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HEIG-AMT" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.annotation" />
+          <element id="library" level="project" name="javax.jms" />
+          <element id="library" level="project" name="javax.persistence" />
+          <element id="library" level="project" name="javax.resource" />
+          <element id="library" level="project" name="javax.servlet.jsp.jstl" />
+          <element id="library" level="project" name="javax.transaction" />
+          <element id="library" level="project" name="javax.ws.rs-api-2.0.1" />
+          <element id="library" level="project" name="javax.ejb" />
+          <element id="library" level="project" name="javax.servlet" />
+          <element id="library" level="project" name="javax.servlet.jsp" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
