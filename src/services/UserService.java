@@ -18,7 +18,6 @@ public class UserService implements UserServiceLocal {
 	private DatabaseServiceLocal db;
 
 	private static final String USER_FIELDS = "id, firstname, lastname, mail, password";
-	private static final String UPDATE_USER_QUERY = "UPDATE users SET firstname = ?, lastname = ?, password = ? WHERE id = ? LIMIT 1";
 
 	@Override
 	public List<User> findAll() {
@@ -64,7 +63,7 @@ public class UserService implements UserServiceLocal {
 			return findByMail(user.getMail()).get().getId();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return 0;
+			return -1;
 		}
 	}
 
