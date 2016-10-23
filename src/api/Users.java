@@ -51,7 +51,7 @@ public class Users {
 			throw new ApiError("Invalid request").toWAE(400);
 		}
 		int id = users.createUser(ucr.toUser());
-		return Response.status(200)
+		return Response.status(201)
 		               .entity(id)
 		               // TODO: Add location header to the response with the URL to
 		               // the newly created user.
