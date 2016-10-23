@@ -14,6 +14,6 @@ Once running, theses services are exposed on the docker machine:
 The application is deployed on the path `/HEIG-AMT/` and the API is available on the path `/HEIG-AMT/api/`.
 
 Example in case Docker is accessible as `localhost`:
-[http://localhost:19090/HEIG-AMT/api/users]
+[http://localhost:19090/HEIG-AMT/api/users](http://localhost:19090/HEIG-AMT/api/users)
 
 Postman test scripts are available in the root folder of the repository.
