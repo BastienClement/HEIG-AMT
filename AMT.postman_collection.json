@@ -1,0 +1,93 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AMT",
+		"_postman_id": "5888563f-7fb0-bf70-0b3b-bcd0b7c790ba",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{API_ROOT}}/users",
+			"request": {
+				"url": "{{API_ROOT}}/users",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Retrieves the list of every users from the database"
+			},
+			"response": []
+		},
+		{
+			"name": "{{API_ROOT}}/users",
+			"request": {
+				"url": "{{API_ROOT}}/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"firstname\": \"Olivier\", \"lastname\": \"Liechti\", \"mail\": \"olivier.liecthi@heig-vd.ch\", \"password\": \"olivier\"}"
+				},
+				"description": "Create a new user"
+			},
+			"response": []
+		},
+		{
+			"name": "{{API_ROOT}}/users/{id}",
+			"request": {
+				"url": "{{API_ROOT}}/users/2",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"firstname\": \"Olivier\", \"lastname\": \"Liechti\", \"mail\": \"olivier.liecthi@heig-vd.ch\", \"password\": \"olivier\"}"
+				},
+				"description": "Retrieves a user by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "{{API_ROOT}}/users/{id}",
+			"request": {
+				"url": "{{API_ROOT}}/users/2",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"firstname\": \"Villard\", \"lastname\": \"Matthieu\"}"
+				},
+				"description": "Updates a user by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "{{API_ROOT}}/users/{id}",
+			"request": {
+				"url": "{{API_ROOT}}/users/3",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Deletes a user by ID"
+			},
+			"response": []
+		}
+	]
+}
