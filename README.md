@@ -9,7 +9,7 @@ Simply run `docker-compose up` in the `topology` folder.
 Once running, theses services are exposed on the docker machine:
 - **MySQL**, on port 3306 (login as root / adminpw)
 - **phpMyAdmin**, on port 6060 (login as root / adminpw)
-- **WildFly**, on port 19090 (Web) and 19990 (Management, login as admin / admin)
+- **WildFly**, on port 19090 (Web, login as bastien.clement@heig-vd.ch / bastien) and 19990 (Management, login as admin / admin)
 
 The application is deployed on the path `/HEIG-AMT/` and the API is available on the path `/HEIG-AMT/api/`.
 
