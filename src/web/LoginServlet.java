@@ -1,6 +1,5 @@
 package web;
 
-import models.User;
 import services.UserServiceLocal;
 
 import javax.ejb.EJB;
@@ -9,29 +8,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Optional;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	@EJB
 	private UserServiceLocal users;
 
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		Optional<User> user = users.findByMail(email).filter(u -> u.getPassword().equals(password));
-		if(user.isPresent()) {
-			request.setAttribute("test", "test");
+		request.setAttribute("email", email);
+		if(email == null || email.isEmpty())
+			request.setAttribute("message", "Email can't be null");
+		else if(password == null || password.isEmpty())
+			request.setAttribute("message", "Password can't be null");
+		else if(!users.findByMail(email).filter(u -> u.getPassword().equals(password)).isPresent())
+			request.setAttribute("message", "Email or password is incorrect");
+		else {
+			HttpSession session = request.getSession(true);
+			session.setAttribute("email", email);
 			response.sendRedirect("admin");
 		}
-		else
-			response.sendRedirect("");
 		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 }

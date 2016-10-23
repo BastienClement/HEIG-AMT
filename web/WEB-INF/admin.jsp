@@ -76,10 +76,10 @@
                                     <li><a href="calendar.html">Calendar</a></li>
                                 </ul>
                             </li>
-                            <li class="active"><a><i class="fa fa-table"></i>People<span class="fa fa-chevron-down"></span></a>
+                            <li class="active"><a><i class="fa fa-table"></i>Admin<span
+                                    class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block;">
-                                    <li><a href="tables.html">Tables</a></li>
-                                    <li class="current-page"><a href="tables_dynamic.html">Table Dynamic</a></li>
+                                    <li class="current-page"><a href="tables_dynamic.html">Users</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -147,16 +147,7 @@
 
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="FullScreen">
-                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Lock">
-                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout">
+                    <a href="logout" data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -230,7 +221,11 @@
                                                                                 class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-12">
                                     <table id="userstable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                                     <thead>
-                                    <tr role="row"><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 264px;">First name</th><th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" style="width: 415px;" aria-sort="ascending">Last name</th></tr>
+                                        <tr role="row">
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 264px;">Id</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 264px;">First name</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 264px;">Laste name</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 264px;">Email</th>
                                     </thead>
 
 
@@ -300,21 +295,45 @@
 <!-- Custom Theme Scripts -->
 <script src="build/js/custom.min.js"></script>
 
+<a href="" onclick="test(); return false;">test</a>
+
 <!-- Datatables -->
 <script>
     $(function(){
-        $("#userstable").DataTable({
-            ajax: {
-                url: "api/users",
-                datSrc: ""
-            },
-            columns: [
-                {data: "firstname"},
-                {data: "lastname"}
-            ]
+        $.get("api/users", function(data, status){
+            assignToEventsColumns(data);
         });
     });
+    function assignToEventsColumns(data) {
+        var table = $('#userstable').dataTable({
+            "dom": 'C<"clear">lfrtip',
+            "bAutoWidth": false,
+            "aaData": data,
+            "aaSorting": [],
+            "aoColumnDefs": [
+                {
+                    "aTargets": [0],
+                    "mData": "id"
+                },
+                {
+                    "aTargets": [1],
+                    "mData": "firstname"
+                },
+                {
+                    "aTargets": [2],
+                    "mData": "lastname"
+                },
+                {
+                    "aTargets": [3],
+                    "mData": "mail"
+                }
+            ]
+        });
+    }
 </script>
 <!-- /Datatables -->
+<script type="text/javascript">(function(){
+    window.SIG_EXT = {};
+})()</script>
 
 </body></html>

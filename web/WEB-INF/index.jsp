@@ -11,7 +11,6 @@
 </head>
 
 <body>
-${}
 <div class="form">
 
   <ul class="tab-group">
@@ -70,14 +69,14 @@ ${}
           <label>
             Email Address<span class="req">*</span>
           </label>
-          <input type="email"required autocomplete="off"/>
+          <input type="email" name="email" required autocomplete="off"/>
         </div>
 
         <div class="field-wrap">
           <label>
             Password<span class="req">*</span>
           </label>
-          <input type="password"required autocomplete="off"/>
+          <input type="password" name="password" required autocomplete="off"/>
         </div>
         <button class="button button-block"/>Log In</button>
 

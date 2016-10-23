@@ -176,3 +176,12 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+
+.error{
+  color: #ff9833;
+  margin: 20px 0 40px 0;
+  border-radius:5px;
+  border: 1px solid #ffcc99;
+  background-color:#ffdbbb;
+  padding:10px;
+}
