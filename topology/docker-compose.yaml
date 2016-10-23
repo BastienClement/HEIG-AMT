@@ -1,0 +1,23 @@
+version: '2'
+services:
+  wildfly:
+    build: wildfly
+    links:
+      - mysql:db
+    ports:
+      - "19090:8080"
+      - "19990:9990"
+  mysql:
+    build: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=adminpw
+    ports:
+      - "3306:3306"
+  phpmyadmin:
+    build: phpmyadmin
+    environment:
+      - MYSQL_ROOT_PASSWORD=adminpw
+    ports:
+      - "6060:80"
+    links:
+      - mysql:db
