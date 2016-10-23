@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+${requestScope.test}
 </body>
 </html>
